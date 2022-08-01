@@ -8,7 +8,7 @@ info:
   contact:
     email: "e18227@eng.pdn.ac.lk"
 host: "virtserver.swaggerhub.com"
-basePath: "/dhmudalige/courses/1.0.0"
+basePath: "/peraprojects/courses/1.0.0"
 tags: []
 schemes:
 - "https"
@@ -195,6 +195,7 @@ definitions:
       core_or_elective: "Core"
       prerequisites:
       - "YY888"
+      - "ZZ777"
       course_content: "Course Content"
       objectives: "Objectives of the course"
       ILOs:
@@ -235,3 +236,5 @@ definitions:
         url: "https://api.ce.pdn.ac.lk/courses/v1/xx999"
       YY888:
         url: "https://api.ce.pdn.ac.lk/courses/v1/yy888"
+      ZZ777:
+        url: "https://api.ce.pdn.ac.lk/courses/v1/zz777"

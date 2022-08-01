@@ -19,7 +19,7 @@ class TestDefaultController(BaseTestCase):
         
         """
         response = self.client.open(
-            '/dhmudalige/courses/1.0.0/{semester}/{courseCode}/'.format(semester='semester_example', courseCode='courseCode_example'),
+            '/peraprojects/courses/1.0.0/{semester}/{courseCode}/'.format(semester='semester_example', courseCode='courseCode_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -30,7 +30,7 @@ class TestDefaultController(BaseTestCase):
         
         """
         response = self.client.open(
-            '/dhmudalige/courses/1.0.0/{semester}/'.format(semester='semester_example'),
+            '/peraprojects/courses/1.0.0/{semester}/'.format(semester='semester_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -41,7 +41,7 @@ class TestDefaultController(BaseTestCase):
         
         """
         response = self.client.open(
-            '/dhmudalige/courses/1.0.0/',
+            '/peraprojects/courses/1.0.0/',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
