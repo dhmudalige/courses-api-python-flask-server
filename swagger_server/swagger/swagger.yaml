@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "This API can be used to obtain the information of the courses in the\
     \ Department of Computer Engineering, University of Peradeniya"
-  version: "1.0.0"
+  version: "2.0.0"
   title: "Courses API"
   contact:
     email: "e18227@eng.pdn.ac.lk"
