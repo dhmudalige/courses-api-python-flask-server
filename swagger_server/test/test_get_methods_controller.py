@@ -11,8 +11,8 @@ from swagger_server.models.semester import Semester  # noqa: E501
 from swagger_server.test import BaseTestCase
 
 
-class TestDefaultController(BaseTestCase):
-    """DefaultController integration test stubs"""
+class TestGetMethodsController(BaseTestCase):
+    """GetMethodsController integration test stubs"""
 
     def test_get_course_by_code(self):
         """Test case for get_course_by_code
