@@ -7,6 +7,7 @@ from six import BytesIO
 
 from swagger_server.models.course import Course  # noqa: E501
 from swagger_server.models.course_list import CourseList  # noqa: E501
+from swagger_server.models.semester import Semester  # noqa: E501
 from swagger_server.test import BaseTestCase
 
 
