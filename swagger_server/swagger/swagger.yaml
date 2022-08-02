@@ -226,18 +226,11 @@ definitions:
         teleMobile: "Mobile telephone number of the lecturer"
       url: "URL for the course details"
   CourseList:
-    type: "object"
-    properties:
-      url:
-        type: "string"
-        format: "uri"
+    type: "string"
     example:
-      XX999:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/xx999"
-      YY888:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/yy888"
-      ZZ777:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/zz777"
+    - "CO999"
+    - "CO988"
+    - "CO977"
   Semester:
     type: "array"
     items:
