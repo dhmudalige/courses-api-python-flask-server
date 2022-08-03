@@ -3,19 +3,21 @@ swagger: "2.0"
 info:
   description: "This API can be used to obtain the information of the courses in the\
     \ Department of Computer Engineering, University of Peradeniya"
-  version: "1.0.0"
+  version: "2.1.0"
   title: "Courses API"
   contact:
     email: "e18227@eng.pdn.ac.lk"
 host: "virtserver.swaggerhub.com"
-basePath: "/peraprojects/courses/1.0.0"
+basePath: "/peraprojects/courses/2.1.0"
 tags: []
 schemes:
 - "https"
 paths:
   /:
     get:
-      description: "Retuns the list of all available courses (Group by semesters)"
+      tags:
+      - "Get Methods"
+      description: "Retuns the list of all available courses"
       operationId: "get_courses"
       produces:
       - "application/json"
@@ -24,10 +26,12 @@ paths:
         "200":
           description: "successful request"
           schema:
-            $ref: "#/definitions/Semester"
-      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+            $ref: "#/definitions/CourseList"
+      x-swagger-router-controller: "swagger_server.controllers.get_methods_controller"
   /{semester}/:
     get:
+      tags:
+      - "Get Methods"
       description: "Retuns the list of available courses the specified semester"
       operationId: "get_course_details_by_semester"
       produces:
@@ -46,9 +50,11 @@ paths:
             $ref: "#/definitions/CourseList"
         "404":
           description: "Invalid Semester"
-      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+      x-swagger-router-controller: "swagger_server.controllers.get_methods_controller"
   /{semester}/{courseCode}/:
     get:
+      tags:
+      - "Get Methods"
       description: "Returns the details of the specified course"
       operationId: "get_course_by_code"
       produces:
@@ -72,7 +78,63 @@ paths:
             $ref: "#/definitions/Course"
         "404":
           description: "Invalid Course Code"
-      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+      x-swagger-router-controller: "swagger_server.controllers.get_methods_controller"
+  /update/{semester}/{courseCode}/:
+    put:
+      tags:
+      - "Put Methods"
+      description: "Update course details (This can only be done by an authorized\
+        \ admin)"
+      operationId: "update_course"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "semester"
+        in: "path"
+        description: "Available Semesters (1, 2, 3, 4, 5, 6, 7, 8, general, technical,\
+          \ short-semester)"
+        required: true
+        type: "string"
+      - name: "courseCode"
+        in: "path"
+        description: "Course Code"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+      x-swagger-router-controller: "swagger_server.controllers.put_methods_controller"
+  /add/{semester}/{courseCode}/:
+    post:
+      tags:
+      - "Post Methods"
+      description: "Add a new course to a semester (This can only be done by an authorized\
+        \ admin)"
+      operationId: "add_course"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Course object that needs to be added to the Semester"
+        required: true
+        schema:
+          $ref: "#/definitions/Course"
+      - name: "semester"
+        in: "path"
+        description: "Available Semesters (1, 2, 3, 4, 5, 6, 7, 8, general, technical,\
+          \ short-semester)"
+        required: true
+        type: "string"
+      - name: "courseCode"
+        in: "path"
+        description: "Course Code"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+        "405":
+          description: "Invalid input"
+      x-swagger-router-controller: "swagger_server.controllers.post_methods_controller"
 definitions:
   Course:
     type: "object"
@@ -226,15 +288,15 @@ definitions:
         teleMobile: "Mobile telephone number of the lecturer"
       url: "URL for the course details"
   CourseList:
-    type: "string"
+    type: "object"
+    properties:
+      url:
+        type: "string"
+        format: "uri"
     example:
-    - "CO999"
-    - "CO988"
-    - "CO977"
-  Semester:
-    type: "array"
-    items:
-      type: "object"
-      properties:
-        Course:
-          $ref: "#/definitions/Course"
+      XX999:
+        url: "https://api.ce.pdn.ac.lk/courses/v1/xx999"
+      YY888:
+        url: "https://api.ce.pdn.ac.lk/courses/v1/yy888"
+      ZZ777:
+        url: "https://api.ce.pdn.ac.lk/courses/v1/zz777"

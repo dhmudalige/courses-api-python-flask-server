@@ -3,7 +3,6 @@ import six
 
 from swagger_server.models.course import Course  # noqa: E501
 from swagger_server.models.course_list import CourseList  # noqa: E501
-from swagger_server.models.semester import Semester  # noqa: E501
 from swagger_server import util
 
 
@@ -38,9 +37,9 @@ def get_course_details_by_semester(semester):  # noqa: E501
 def get_courses():  # noqa: E501
     """get_courses
 
-    Retuns the list of all available courses (Group by semesters) # noqa: E501
+    Retuns the list of all available courses # noqa: E501
 
 
-    :rtype: Semester
+    :rtype: CourseList
     """
     return 'do some magic!'
