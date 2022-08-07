@@ -295,8 +295,8 @@ definitions:
         format: "uri"
     example:
       XX999:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/xx999"
+        url: "https://api.ce.pdn.ac.lk/courses/v2/xx999"
       YY888:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/yy888"
+        url: "https://api.ce.pdn.ac.lk/courses/v2/yy888"
       ZZ777:
-        url: "https://api.ce.pdn.ac.lk/courses/v1/zz777"
+        url: "https://api.ce.pdn.ac.lk/courses/v2/zz777"
